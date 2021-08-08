@@ -151,9 +151,9 @@ namespace Management.UI
                             try
                             {
                                 Console.WriteLine("Enter Store name");
-                                firstName = Console.ReadLine();
+                                storeName = Console.ReadLine();
                                 Console.WriteLine("Enter Store Type");
-                                lastName = Console.ReadLine();
+                                storeType = Console.ReadLine();
                                 
                                 store = storeActions.AddStore(storeName, storeType, customer.Email);
                                 Console.WriteLine($"Store {store.Name} added successfully");

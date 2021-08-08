@@ -18,12 +18,13 @@ namespace Management.BL
         }
 
         public Store AddStore(string name, string type, string userEmail)
-        {           
+        {
+            Random random = new Random();
             Store newStore = new Store
             {
                 Name = name,
                 Type = type,
-                StoreNumber = storeNumber,
+                StoreNumber = random.Next(10000, 1000000000).ToString(),
                 UserEmail = userEmail
             };
             store.stores.Enqueue(newStore);

@@ -13,7 +13,7 @@ namespace Management.BL
         private readonly CustomerData store;
         public CustomerActions()
         {
-            store = new DataStore();
+            store = new CustomerData();
             store.ReadCustomersDataFromFile();
         }
 
