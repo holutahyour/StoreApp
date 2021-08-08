@@ -10,7 +10,7 @@ namespace Management.BL
 {
     public class CustomerActions
     {
-        private readonly DataStore store;
+        private readonly CustomerData store;
         public CustomerActions()
         {
             store = new DataStore();

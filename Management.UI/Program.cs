@@ -15,7 +15,8 @@ namespace Management.UI
             {
 
                 CustomerActions actions = new CustomerActions();
-                Dashboard.DisplayDashBoard(actions);
+                StoreActions storeActions = new StoreActions();
+                Dashboard.DisplayDashBoard(actions, storeActions);
             }
             catch (Exception)
             {

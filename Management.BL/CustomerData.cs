@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Management.BL
 {
-    public class DataStore
+    public class CustomerData
     {
         public Queue<Customer> customers = new Queue<Customer>();
         public void WriteCustomersDataToFile()

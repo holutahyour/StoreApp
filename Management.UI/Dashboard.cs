@@ -15,10 +15,14 @@ namespace Management.UI
         private static string lastName;
         private static string emailAddress;
         private static string password;
-        public static void DisplayDashBoard(CustomerActions actions)
+        private static string storeName;
+        private static string storeType;
+
+        public static void DisplayDashBoard(CustomerActions actions,StoreActions storeActions)
         {
             bool shouldRun = true;
             Customer customer = new Customer();
+            Store store = new Store();
 
             while (shouldRun)
             {
@@ -126,20 +130,33 @@ namespace Management.UI
                                 Console.Clear();
                             }
                             break;
-
-                        case 4:
+                         case 4:
                             try
                             {
-                                Console.WriteLine("Enter first name");
+                                var stores = storeActions.DisplayStores();
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                UIHelpers.DisplayStoreTable(stores);
+                                Console.ReadKey();
+                                Console.Clear();
+                            }
+                            catch (Exception e)  //Catches all unforseen errors
+                            {
+                                Console.WriteLine(e.Message);
+                                Console.ReadKey();
+                                Console.Clear();
+                            }
+                            break;
+
+                        case 5:
+                            try
+                            {
+                                Console.WriteLine("Enter Store name");
                                 firstName = Console.ReadLine();
-                                Console.WriteLine("Enter last name");
+                                Console.WriteLine("Enter Store Type");
                                 lastName = Console.ReadLine();
-                                Console.WriteLine("Enter email address");
-                                emailAddress = Console.ReadLine();
-                                Console.WriteLine("Enter Password");
-                                password = Console.ReadLine();
-                                customer = actions.AddCustomer(firstName, lastName, emailAddress, password);
-                                Console.WriteLine($"Customer {customer.FullName} added successfully");
+                                
+                                store = storeActions.AddStore(storeName, storeType, customer.Email);
+                                Console.WriteLine($"Store {store.Name} added successfully");
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine();
                                 Console.ReadKey();
